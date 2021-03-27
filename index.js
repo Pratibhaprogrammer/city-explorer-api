@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const express = require('express');
 //this is brining in my weather module
-const handleWeather = require('./weather.js');
+const handleWeather = require('./components/weatherAPI.js');
 
 //allow our front-end to access our server
 const cors = require('cors');
@@ -15,10 +15,11 @@ const cors = require('cors');
 // initalizing the express library so I can use it
 const app = express();
 //created a variable to be used to acces weather.json data
-const weather = require(`./weather.json`)//Delete once you have your API(weather)
+// const weather = require(`./weather.json`)//Delete once you have your API(weather)
 //this allows anyone to access our server - aka - the worlds worst body guard
 app.use(cors());
 //assigning PORT to key from .env
+app.use(express.json());
 const PORT = process.env.PORT || 3001;
 //go to this path (local host) and then run this function
 app.get(`/weather`, handleWeather);

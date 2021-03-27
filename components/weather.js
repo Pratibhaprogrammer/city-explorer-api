@@ -2,7 +2,7 @@
 'use strict';
 
 // const superagent =require('superagent');
-const Forcast = require('./constructor.js');
+const Forcast = require('../constructor.js');
 
 function handleWeather(request, response){
   //  console.log(request.query)
